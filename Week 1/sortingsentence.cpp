@@ -10,20 +10,22 @@ Given a shuffled sentence s containing no more than 9 words, reconstruct and ret
 #include <sstream>
 #include <unordered_map>
 
+using namespace std;
+
 class Solution {
 public:
-    std::string sortSentence(std::string s) {
-        std::unordered_map<int, std::string> wordMap;
-        std::istringstream iss(s);
+    string sortSentence(string s) {
+        unordered_map<int, string> wordMap;
+        istringstream iss(s);
         
-        std::string word;
+        string word;
         while (iss >> word) {
             int position = word.back() - '0';
             word.pop_back();
             wordMap[position] = word;
         }
         
-        std::string sortedSentence;
+        string sortedSentence;
         for (int i = 1; i <= wordMap.size(); ++i) {
             sortedSentence += wordMap[i] + " ";
         }
@@ -36,9 +38,9 @@ public:
 
 int main() {
     Solution solution;
-    std::string originalSentence = "This4 is3 a2 sentence1";
-    std::string shuffledSentence = solution.sortSentence(originalSentence);
-    std::cout << "Original Sentence: " << originalSentence << std::endl;
-    std::cout << "Shuffled Sentence: " << shuffledSentence << std::endl;
+    string originalSentence = "This4 is3 a2 sentence1";
+    string shuffledSentence = solution.sortSentence(originalSentence);
+    cout << "Original Sentence: " << originalSentence << endl;
+    cout << "Shuffled Sentence: " << shuffledSentence << endl;
     return 0;
 }

@@ -9,10 +9,12 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 class Solution {
 public:
-    std::vector<std::string> fizzBuzz(int n) {
-        std::vector<std::string> answer;
+    vector<string> fizzBuzz(int n) {
+        vector<string> answer;
 
         for (int i = 1; i <= n; ++i) {
             if (i % 3 == 0 && i % 5 == 0) {
@@ -22,7 +24,7 @@ public:
             } else if (i % 5 == 0) {
                 answer.push_back("Buzz");
             } else {
-                answer.push_back(std::to_string(i));
+                answer.push_back(to_string(i));
             }
         }
 
@@ -34,12 +36,12 @@ int main() {
     Solution solution;
     int n;
     
-    std::cout << "Enter a value for n: ";
-    std::cin >> n;
+    cout << "Enter a value for n: ";
+    cin >> n;
 
-    std::vector<std::string> result = solution.fizzBuzz(n);
-    for (const std::string& s : result) {
-        std::cout << s << " ";
+    vector<string> result = solution.fizzBuzz(n);
+    for (const string& s : result) {
+        cout << s << " ";
     }
 
     return 0;
